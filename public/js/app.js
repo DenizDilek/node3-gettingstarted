@@ -10,7 +10,7 @@ const message = document.querySelector('#message')
 
 
 const fetchWeather=(fetchData,fetchResult,message)=>{
-    fetch('/weather?search='+fetchData).then((response)=>{
+    fetch('http://den-something-weather-related.herokuapp.com/weather?search='+fetchData).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 console.log(data.error)
