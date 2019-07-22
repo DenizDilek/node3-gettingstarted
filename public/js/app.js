@@ -7,8 +7,10 @@ console.log("Client side javascript file isloaded !!!!")
 var fetchData = ''
 var fetchResult = {}
 const message = document.querySelector('#message')
+
+
 const fetchWeather=(fetchData,fetchResult,message)=>{
-    fetch('http://localhost:3000/weather?search='+fetchData).then((response)=>{
+    fetch(+'/weather?search='+fetchData).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 console.log(data.error)

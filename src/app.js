@@ -7,7 +7,7 @@ const geocode = require('../utils/geocode.js')
 const forecast = require('../utils/forecast.js')
 app.set("view engine",'hbs')
 app.use(express.static(fileDirectory))
-
+const port = process.env.PORT || 3000
 app.get('',(req,res)=>{
     res.render("index")
 })
@@ -42,6 +42,6 @@ app.get("*",(req,res)=>{
     res.send("Error 404")
 })
 
-app.listen(3000,()=>{
-    console.log('Server is up on port 3000')
+app.listen(port,()=>{
+    console.log('Server is up on port '+port)
 })
