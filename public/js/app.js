@@ -10,9 +10,17 @@ const message = document.querySelector('#message')
 
 
 const fetchWeather=(fetchData,fetchResult,message)=>{
-    fetch('http://den-something-weather-related.herokuapp.com/weather?search='+fetchData)
-    .then(res=>res.text())
-    .then(res=>console.log(res))
+    fetch('/weather?search='+fetchData).then((response)=>{
+        response.json().then((data)=>{
+            if(data.error){
+                console.log(data.error)
+            }else{
+                fetchResult = data
+                console.log(fetchResult)
+                message.textContent = 'Location :  '+data.location + '\n Forecast :  '+data.forecast
+            }
+        })
+    })
 }
 
 const weatherForm = document.querySelector('form')
